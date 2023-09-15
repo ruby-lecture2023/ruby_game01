@@ -4,17 +4,17 @@ WINDOW_X = 640
 WINDOW_Y = 480
 
 # 人物の画像設定
-normal1_img = Image.load("image/tachie_normal1.png") # 通常
-normal2_img = Image.load("image/tachie_normal2.png") # 通常（開口）
-smile2_img = Image.load("image/tachie_smile2.png") # 超笑顔
-# angry1_img = Image.load("image/tachie_angry1.png")
-confounded2_img = Image.load("image/tachie_confounded_face2.png") # 困り顔
+normal1_img = Image.load("image/character/hohoemi.png") # 通常
+normal2_img = Image.load("image/character/bikkuri.png") # 通常（開口）
+smile2_img = Image.load("image/character/smile.png") # 超笑顔
+angry1_img = Image.load("image/character/ikari.png") #怒った顔
+confounded2_img = Image.load("image/character/kanashii.png") # 困り顔
 
 # その他画像設定
-back_img = Image.load("image/classloom.jpg") #背景
-window_img = Image.load("image/window_01.png") #メッセージボックス
-button_img = Image.load("image/button_01.png") # 選択肢
-button_hover_img = Image.load("image/button_01_hover.png") # 選択肢（選択状態）
+back_img = Image.load("image/back/kyousitu01.jpg") #背景
+window_img = Image.load("image/textbox/window_01.png") #メッセージボックス
+button_img = Image.load("image/textbox/button_01.png") # 選択肢
+button_hover_img = Image.load("image/textbox/button_01_hover.png") # 選択肢（選択状態）
 
 # フォント設定
 font = Font.new(24, fontname="ドットゴシック16") # 本文（サイズは24pt）
