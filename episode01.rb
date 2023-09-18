@@ -20,6 +20,7 @@ font_name = Font.new(22, fontname="ドットゴシック16") # 人物の名前�
 likability = 0 # 好感度
 flag = 0 #　フラグ
 flag2 = 0
+flag3 = 0
 flag_end = 0 # 終了フラグ
 player_chose = 0 # どの選択肢を選んだか
 timer = 0
@@ -52,14 +53,15 @@ Window.loop do
         end
     when 2
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(44, 404, "担任「HRは以上！今日はこれで終わりだ、気をつけて帰れよ」", font, color:[165, 83, 126])
+        Window.draw_font(124, 374, "先生", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "HRは以上！今日はこれで終わりだ、気をつけて帰れよ", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 3
         end
     when 3
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(66, 374, "隣の席の男子", font_name, color:[255, 255, 255])
+        Window.draw_font(94, 374, "隣の席の男子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "ねえ、初めましてだよね？", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 4
@@ -77,31 +79,6 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON) then
             flag = 1
         end
-
-=begin
-        # 選択肢による反応の変化と、好感度の加算
-        case player_chose
-        when 1 then
-            Window.draw(125, 0, normal_img)
-            Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "おう！仲よくしような", font, color:[165, 83, 126])
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-        when 2 then
-            Window.draw(125, 0, normal_img)
-            Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "えっ、困らせちゃった！？ごめんね", font, color:[165, 83, 126])
-            # 2は好感度が変化しない選択肢
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-        when 3 then
-            Window.draw(125, 0, normal_img)
-            Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "(無視？感じわるーこの人……)", font, color:[165, 83, 126])
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-        end
-=end
 
         # 選択肢を表示する
         if flag == 1 && flag_end == 0 then
@@ -155,5 +132,27 @@ Window.loop do
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "鏡子ちゃん、1年間よろしくね", font, color:[165, 83, 126])
         # Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 6
+        end
+    when 6
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(99, 374, "鏡子の友達", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "鏡子～！一緒に買えろ", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 7
+        end
+    when 7
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "うん、ちょっと待ってて！\n中野くん、また明日", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 8
+        end
+    when 8
+        Window.draw(125, 0, normal_img)
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "またね", font, color:[165, 83, 126])
     end
 end
