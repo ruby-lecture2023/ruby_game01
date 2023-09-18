@@ -11,7 +11,7 @@ sekimen3_img = Image.load("image/character/sekimen03.png") # 赤面3
 iraira_img = Image.load("image/character/iraira.png") # いらいら
 
 # その他画像設定
-back_img = Image.load("image/back/kyousitu01.jpg") #背景
+back_img = Image.load("image/back/ryokan.jpg") #背景
 window_img = Image.load("image/textbox/window_01.png") #メッセージボックス
 button_img = Image.load("image/textbox/button_01.png") # 選択肢
 button_hover_img = Image.load("image/textbox/button_01_hover.png") # 選択肢（選択状態）
@@ -38,7 +38,7 @@ Window.loop do
     timer += 1 if flag == 1
 
     # 背景の表示
-    Window.draw(0, 0, back_img)
+    Window.draw_scale(0, 0, back_img, 0.2, 0.2, 0, 0)
 
     # モノローグの部分はcase文で管理
     case flag2
@@ -164,20 +164,20 @@ Window.loop do
         when 1 then
             Window.draw(125, 0, sekimen3_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "そっ、そんなこと君に言われても\n嬉しくないから！", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 2 then
             Window.draw(125, 0, normal_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "そうかな…？\nまあどっちでもいいけど", font, color:[165, 83, 126])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+            Window.draw_font(44, 404, "じゃ、お風呂行ってくるね", font, color:[165, 83, 126])
             # 2は好感度が変化しない選択肢
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 3 then
             Window.draw(125, 0, iraira_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "君、意外と図々しいなあ。\n120円までね", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         end
@@ -186,19 +186,19 @@ Window.loop do
         if flag == 1 && flag_end == 0 then
             # 選択肢1
             Window.draw_scale(109, 224, button_img, 0.6, 0.6, 0, 0)
-            Window.draw_font(230, 229, "中野くんも、かわいいよ", font, color:[165, 83, 126])
+            Window.draw_font(235, 229, "中野くん、かわいいね", font, color:[165, 83, 126])
             # 選択肢2
             Window.draw_scale(109, 274, button_img, 0.6, 0.6, 0, 0)
-            Window.draw_font(190, 279, "中野くんはいつもの方がかっこいいよ", font, color:[165, 83, 126])
+            Window.draw_font(280, 279, "ありがとう", font, color:[165, 83, 126])
             # 選択肢3
             Window.draw_scale(109, 324, button_img, 0.6, 0.6, 0, 0)
             Window.draw_font(225, 329, "可愛い私にジュース奢って", font, color:[165, 83, 126])
 
-            if timer >= 45
+            if timer >= 40
                 # マウスの座標が特定の領域にある間、選択肢をホバー状態にする
                 if (109 < x && x <541 && 224 < y && y < 260) then # 選択肢1
                     Window.draw_scale(109, 224, button_hover_img, 0.6, 0.6, 0, 0)
-                    Window.draw_font(230, 229, "中野くんも、かわいいよ", font, color:[255, 255, 255])
+                    Window.draw_font(235, 229, "中野くん、かわいいね", font, color:[255, 255, 255])
                     if Input.mouse_push?(M_LBUTTON) then
                         player_chose = 1
                         flag = 0
@@ -207,7 +207,7 @@ Window.loop do
                     end
                 elsif (109 < x && x <541 && 274 < y && y < 310) then # 選択肢2
                     Window.draw_scale(109, 274, button_hover_img, 0.6, 0.6, 0, 0)
-                    Window.draw_font(190, 279, "中野くんはいつもの方がかっこいいよ", font, color:[255, 255, 255])
+                    Window.draw_font(280, 279, "ありがとう", font, color:[255, 255, 255])
                     if Input.mouse_push?(M_LBUTTON) then
                         player_chose = 2
                         flag = 0
