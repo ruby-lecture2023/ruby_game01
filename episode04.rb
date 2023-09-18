@@ -10,7 +10,7 @@ sekimen2_img = Image.load("image/character/sekimen02.png") # 赤面2
 sekimen3_img = Image.load("image/character/sekimen03.png") # 赤面3
 iraira_img = Image.load("image/character/iraira.png") # いらいら
 smile_img = Image.load("image/character/smile.png") # 笑顔
-kanashii_img = Image.load("image/character/kanashii.png") # 通常
+kanashii_img = Image.load("image/character/kanashii.png") # 悲しい
 
 # その他画像設定
 back_img = Image.load("image/back/kyousitu01.jpg") #背景
@@ -112,20 +112,11 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
             flag2 =9
         end
-    when 9
+    else
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "それじゃあ…", font, color:[165, 83, 126])
-        if Input.mouse_push?(M_LBUTTON)
-            flag2 = 10
-        end
-    else
-        # メッセージウィンドウの表示
-        #Window.draw(125, 0, normal_img)
-        #Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        #Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        #Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
 
         # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
         # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
@@ -139,20 +130,20 @@ Window.loop do
         when 1 then
             Window.draw(125, 0, kanashii_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "なぁんだ、つまんない女の子", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 2 then
             Window.draw(125, 0, kanashii_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "…うん", font, color:[165, 83, 126])
             # 2は好感度が変化しない選択肢
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 3 then
             Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "もちろん。794年から、1184年までだね", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
             flag2 = 11
@@ -170,7 +161,7 @@ Window.loop do
             Window.draw_scale(109, 324, button_img, 0.6, 0.6, 0, 0)
             Window.draw_font(250, 329, "歴史、教えてくれない？", font, color:[165, 83, 126])
 
-            if timer >= 45
+            if timer >= 40
                 # マウスの座標が特定の領域にある間、選択肢をホバー状態にする
                 if (109 < x && x <541 && 224 < y && y < 260) then # 選択肢1
                     Window.draw_scale(109, 224, button_hover_img, 0.6, 0.6, 0, 0)
