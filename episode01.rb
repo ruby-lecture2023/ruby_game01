@@ -7,8 +7,9 @@ WINDOW_Y = 480
 normal_img = Image.load("image/character/hohoemi.png") # 通常
 
 # その他画像設定
-back_img = Image.load("image/back/kyousitu01.jpg") #背景
-window_img = Image.load("image/textbox/window_01.png") #メッセージボックス
+back_img = Image.load("image/back/kyousitu01.jpg") # 背景
+myroom_img = Image.load("image/back/myroom.jpg") # 背景（主人公の部屋）
+window_img = Image.load("image/textbox/window_01.png") # メッセージボックス
 button_img = Image.load("image/textbox/button_01.png") # 選択肢
 button_hover_img = Image.load("image/textbox/button_01_hover.png") # 選択肢（選択状態）
 
@@ -20,7 +21,6 @@ font_name = Font.new(22, fontname="ドットゴシック16") # 人物の名前�
 likability = 0 # 好感度
 flag = 0 #　フラグ
 flag2 = 0
-flag3 = 0
 flag_end = 0 # 終了フラグ
 player_chose = 0 # どの選択肢を選んだか
 timer = 0
@@ -136,6 +136,7 @@ Window.loop do
             flag2 = 6
         end
     when 6
+        Window.draw(0, 0, back_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(99, 374, "鏡子の友達", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "鏡子～！一緒に買えろ", font, color:[165, 83, 126])
@@ -152,7 +153,31 @@ Window.loop do
     when 8
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+        Window.draw_font(109, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "またね", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 9
+        end
+    when 9
+        Window.draw(0, 0, mayroom_img)
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(44, 404, "───鏡子の部屋───", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 10
+        end
+    when 10
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "中野くん、かっこよかったなぁ……", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 11
+        end
+    when 11
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "中野くん、かっこよかったなぁ……", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 11
+        end
     end
 end
