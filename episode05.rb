@@ -30,6 +30,7 @@ font_name = Font.new(22, fontname="ドットゴシック16") # 人物の名前�
 likability = 0 # 好感度
 flag = 0 #　フラグ
 flag2 = 0
+flag3 = 0
 flag_end = 0 # 終了フラグ
 player_chose = 0 # どの選択肢を選んだか
 timer = 0
@@ -174,68 +175,49 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
             flag2 =15
         end
-    when 15
-        
+    else
         Window.draw(125, 0, bikkuri_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "うわ、トミー人見知りするのに。鏡子ちゃん優しいからかな！", font, color:[165, 83, 126])
-        if Input.mouse_push?(M_LBUTTON)
-            flag2 = 100
-        end
-    else
-        # メッセージウィンドウの表示
-        #Window.draw(125, 0, normal_img)
-        #Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        #Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        #Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
 
         # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
         # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
         # とすることで、意図したとおりに表示することができます。
         if Input.mouse_push?(M_LBUTTON) then
-            
             flag = 1
         end
 
         # 選択肢による反応の変化と、好感度の加算
         case player_chose
-        when 1 then
-            
+        when 1 then            
             Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
             Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "そうだよ。じゃあまたね", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-        when 2 then
-            
+        when 2 then            
             Window.draw(125, 0, kanashii_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
             Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "えー酷いなぁ。なぁトミー？", font, color:[165, 83, 126])
-            # 2は好感度が変化しない選択肢
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 3 then
-            flag2 = 16
-            case flag2
-        when 16
             Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
             Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "喜んで。良かったなトミー", font, color:[165, 83, 126])
             if Input.mouse_push?(M_LBUTTON)
-                flag2 =17
+                flag3 =1
             end
-        when 17
+        end
+
+        case flag3
+        when 1
             Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
             Window.draw_font(110, 374, "トミー", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "ワンッ", font, color:[165, 83, 126])
-            if Input.mouse_push?(M_LBUTTON)
-                
-            end
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-        end
         end
 
         # 選択肢を表示する

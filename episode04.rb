@@ -146,7 +146,6 @@ Window.loop do
             Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "もちろん。794年から、1184年までだね", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
-            flag2 = 11
         end
 
         # 選択肢を表示する
