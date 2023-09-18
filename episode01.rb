@@ -5,6 +5,13 @@ WINDOW_Y = 480
 
 # 人物の画像設定
 normal_img = Image.load("image/character/hohoemi.png") # 通常
+sekimen1_img = Image.load("image/character/sekimen01.png") # 赤面1
+sekimen2_img = Image.load("image/character/sekimen02.png") # 赤面2
+sekimen3_img = Image.load("image/character/sekimen03.png") # 赤面3
+iraira_img = Image.load("image/character/iraira.png") # いらいら
+smile_img = Image.load("image/character/smile.png") # 笑顔
+kanashii_img = Image.load("image/character/kanashii.png") # 悲しい
+bikkuri_img = Image.load("image/character/bikkuri.png") # 驚き
 
 # その他画像設定
 back_img = Image.load("image/back/kyousitu01.jpg") # 背景
@@ -68,7 +75,7 @@ Window.loop do
         end
     when 4
         # メッセージウィンドウの表示
-        Window.draw(125, 0, normal_img)
+        Window.draw(125, 0, smile_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
@@ -127,7 +134,7 @@ Window.loop do
             end
         end
     when 5
-        Window.draw(125, 0, normal_img)
+        Window.draw(125, 0, smile_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "鏡子ちゃん、1年間よろしくね", font, color:[165, 83, 126])
@@ -139,7 +146,7 @@ Window.loop do
         Window.draw(0, 0, back_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(99, 374, "鏡子の友達", font_name, color:[255, 255, 255])
-        Window.draw_font(44, 404, "鏡子～！一緒に買えろ", font, color:[165, 83, 126])
+        Window.draw_font(44, 404, "鏡子～！一緒に帰ろ", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 7
         end
@@ -151,7 +158,7 @@ Window.loop do
             flag2 = 8
         end
     when 8
-        Window.draw(125, 0, normal_img)
+        Window.draw(125, 0, smile_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(109, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "またね", font, color:[165, 83, 126])
@@ -159,13 +166,14 @@ Window.loop do
             flag2 = 9
         end
     when 9
-        Window.draw(0, 0, mayroom_img)
+        Window.draw_scale(0, 0, myroom_img, 0.2, 0.2, 0, 0)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(44, 404, "───鏡子の部屋───", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 10
         end
     when 10
+        Window.draw_scale(0, 0, myroom_img, 0.2, 0.2, 0, 0)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "中野くん、かっこよかったなぁ……", font, color:[165, 83, 126])
@@ -173,11 +181,20 @@ Window.loop do
             flag2 = 11
         end
     when 11
+        Window.draw_scale(0, 0, myroom_img, 0.2, 0.2, 0, 0)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
-        Window.draw_font(44, 404, "中野くん、かっこよかったなぁ……", font, color:[165, 83, 126])
+        Window.draw_font(44, 404, "きっとモテモテなんだろうな、いいなぁ", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
-            flag2 = 11
+            flag2 = 12
+        end
+    when 12
+        Window.draw_scale(0, 0, myroom_img, 0.2, 0.2, 0, 0)
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "明日も学校だ。早く寝よう。", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+            flag2 = 13
         end
     end
 end
