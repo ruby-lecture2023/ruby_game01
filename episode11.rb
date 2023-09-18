@@ -100,7 +100,7 @@ Window.loop do
         # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
         # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
         # とすることで、意図したとおりに表示することができます。
-        if flag != 1 && Input.mouse_push?(M_LBUTTON) then
+        if Input.mouse_push?(M_LBUTTON) then
             flag = 1
         end
 
