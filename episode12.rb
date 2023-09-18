@@ -51,7 +51,7 @@ Window.loop do
         end
     else
     if likeability >= 7  #好感度が7以上の時告白ルート
-　　flag2 = 2
+    flag2 = 2
      case flag2
      when 2
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
@@ -68,7 +68,7 @@ Window.loop do
         end
     else       
 
-　　    if likeability <= 6  || likeability ==0 #好感度が0～6の時TRUE END
+        if likeability <= 6  || likeability ==0 #好感度が0～6の時TRUE END
      case flag2
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
@@ -77,7 +77,7 @@ Window.loop do
         end
     else     
 
-　　if likeability < 0    #好感度が０以下、ドボン選択肢を選んだ場合BAD END
+    if likeability < 0    #好感度が０以下、ドボン選択肢を選んだ場合BAD END
     flag2 = 4
     case flag2
             when 4
@@ -92,16 +92,6 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
         end
     else
-
-        # メッセージウィンドウの表示
-        #Window.draw(125, 0, normal_img)
-        #Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        #Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        #Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
-
-        # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
-        # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
-        # とすることで、意図したとおりに表示することができます。
         if Input.mouse_push?(M_LBUTTON) then
             flag = 1
         end

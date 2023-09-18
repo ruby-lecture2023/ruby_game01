@@ -1,5 +1,1 @@
-require 'dxruby'
-
-Window.loop do
-
-end
+Dir["*.rb"].each{|file| require_relative file}
