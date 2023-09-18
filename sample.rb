@@ -64,7 +64,7 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 4
         end
-    else
+    when 4
         # メッセージウィンドウの表示
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
@@ -144,5 +144,12 @@ Window.loop do
                 end
             end
         end
+        flag2 = 5
+    when 5
+        Window.draw(125, 0, normal_img)
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "おう！仲よくしような", font, color:[165, 83, 126])
+        Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
     end
 end
