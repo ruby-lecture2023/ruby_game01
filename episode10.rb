@@ -188,7 +188,7 @@ Window.loop do
             Window.draw_scale(109, 324, button_img, 0.6, 0.6, 0, 0)
             Window.draw_font(269, 329, "寒いからすぐ帰ろう", font, color:[165, 83, 126])
 
-            if timer >= 45
+            if timer >= 40
                 # マウスの座標が特定の領域にある間、選択肢をホバー状態にする
                 if (109 < x && x <541 && 224 < y && y < 260) then # 選択肢1
                     Window.draw_scale(109, 224, button_hover_img, 0.6, 0.6, 0, 0)
