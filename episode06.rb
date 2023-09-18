@@ -47,7 +47,7 @@ Window.loop do
     case flag2
     when 0
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(44, 404, "-教室-", font, color:[165, 83, 126])
+        Window.draw_font(44, 404, "───教室──", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 1
         end
@@ -67,18 +67,21 @@ Window.loop do
         end
     when 3
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "照池学園の修学旅行先は、なんとハワイ！", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =4
         end
     when 4
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "マリンスポーツにショッピング！誰と一緒になるか、ならないか。", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =5
         end
     when 5
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "それが問題だ。あわよくば、中野くんと一緒になれたら…", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =6
@@ -150,7 +153,7 @@ Window.loop do
     when 14
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(110, 374, "友人2", font_name, color:[255, 255, 255])
+        Window.draw_font(110, 374, "友人２", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "パイナップル…", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =15
@@ -158,7 +161,7 @@ Window.loop do
     when 15
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(110, 374, "友人1", font_name, color:[255, 255, 255])
+        Window.draw_font(110, 374, "友人１", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "これかな？ドールプランテーション。\n電車に乗ってパイナップル畑の見学ができるんだってー！", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =16
@@ -166,7 +169,7 @@ Window.loop do
     when 16
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        Window.draw_font(110, 374, "友人2", font_name, color:[255, 255, 255])
+        Window.draw_font(110, 374, "友人２", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "パイナップルのソフトクリーム？へぇ、いいじゃん", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =17
@@ -231,28 +234,16 @@ Window.loop do
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        Window.draw_font(44, 404, "修学旅行2日めの自由行動、鏡子ちゃん予約できる？", font, color:[165, 83, 126])
+        Window.draw_font(44, 404, "修学旅行２日目の自由行動、鏡子ちゃん予約できる？", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =26
         end
-    when 27
+    when 26
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
-        Window.draw_font(44, 404, "えっっ……うーん、", font, color:[165, 83, 126])
-        if Input.mouse_push?(M_LBUTTON)
-            flag2 =28
-        end
-    else
-        # メッセージウィンドウの表示
-        #Window.draw(125, 0, normal_img)
-        #Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        #Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        #Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
+        Window.draw_font(44, 404, "えっ……うーん、", font, color:[165, 83, 126])
 
-        # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
-        # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
-        # とすることで、意図したとおりに表示することができます。
         if Input.mouse_push?(M_LBUTTON) then
             flag = 1
         end
@@ -262,22 +253,18 @@ Window.loop do
         when 1 then
             Window.draw(125, 0, normal_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "", font, color:[165, 83, 126])
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+            Window.draw_font(44, 404, "そうなの？それじゃあ仕方ないね", font, color:[165, 83, 126])
         when 2 then
             Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "", font, color:[165, 83, 126])
-            # 2は好感度が変化しない選択肢
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+            Window.draw_font(44, 404, "よかった、ありがとう。楽しみだね", font, color:[165, 83, 126])
         when 3 then
             Window.draw(125, 0, kanashii_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
-            Window.draw_font(44, 404, "", font, color:[165, 83, 126])
-            Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
+            Window.draw_font(44, 404, "……そっか", font, color:[165, 83, 126])
         end
 
         # 選択肢を表示する
@@ -287,7 +274,7 @@ Window.loop do
             Window.draw_font(290, 229, "先約あるから", font, color:[165, 83, 126])
             # 選択肢2
             Window.draw_scale(109, 274, button_img, 0.6, 0.6, 0, 0)
-            Window.draw_font(260, 279, "2人きりなら、いいよ。", font, color:[165, 83, 126])
+            Window.draw_font(260, 279, "２人きりなら、いいよ。", font, color:[165, 83, 126])
             # 選択肢3
             Window.draw_scale(109, 324, button_img, 0.6, 0.6, 0, 0)
             Window.draw_font(285, 329, "ちょっと嫌かな", font, color:[165, 83, 126])
@@ -305,7 +292,7 @@ Window.loop do
                     end
                 elsif (109 < x && x <541 && 274 < y && y < 310) then # 選択肢2
                     Window.draw_scale(109, 274, button_hover_img, 0.6, 0.6, 0, 0)
-                    Window.draw_font(260, 279, "2人きりなら、いいよ。", font, color:[255, 255, 255])
+                    Window.draw_font(260, 279, "２人きりなら、いいよ。", font, color:[255, 255, 255])
                     if Input.mouse_push?(M_LBUTTON) then
                         player_chose = 2
                         flag = 0
