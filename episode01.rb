@@ -193,8 +193,5 @@ Window.loop do
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(109, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "明日も学校だ。早く寝よう。", font, color:[165, 83, 126])
-        if Input.mouse_push?(M_LBUTTON)
-            flag2 = 13
-        end
     end
 end

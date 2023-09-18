@@ -58,9 +58,15 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
             flag2 = 2
         end
+
     when 2
         Window.draw_scale(0, 0, back1_img, 0.2, 0.2, 0, 0)
         Window.draw(125, 0, normal_img)
+    else
+    if likeability >= 7  #好感度が7以上の時告白ルート
+    flag2 = 2
+     case flag2
+     when 2
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "鏡子ちゃん、放課後少し時間もらえるかな？", font, color:[165, 83, 126])
@@ -71,12 +77,35 @@ Window.loop do
         Window.draw_scale(0, 0, back1_img, 0.2, 0.2, 0, 0)
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+
         Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "中野くん！放課後ね、わかった…！", font, color:[165, 83, 126])
+
+        Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "僕、鏡子ちゃんが好きだよ。付き合ってくれると嬉しいんだけど…", font, color:[165, 83, 126])
+        if Input.mouse_push?(M_LBUTTON)
+        end
+    else       
+
+        if likeability <= 6  || likeability ==0 #好感度が0～6の時TRUE END
+     case flag2
+        Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+        Window.draw_font(44, 404, "鏡子ちゃん、1年間ありがとう。\n来年また同じクラスになったら、よろしくね。", font, color:[165, 83, 126])
+
         if Input.mouse_push?(M_LBUTTON)
             flag2 =4
         end
+
     when 4
+
+    else     
+
+    if likeability < 0    #好感度が０以下、ドボン選択肢を選んだ場合BAD END
+    flag2 = 4
+    case flag2
+            when 4
+
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(44, 404, "-教室-", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
@@ -93,16 +122,6 @@ Window.loop do
     
     
     else
-        
-        # メッセージウィンドウの表示
-        #Window.draw(125, 0, normal_img)
-        #Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-        #Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
-        #Window.draw_font(44, 404, "僕は中野黄治。君は？", font, color:[165, 83, 126])
-
-        # 「Input.mouse_down?~」だけではマウスが押されている間しか選択肢が表示されないので
-        # 一旦フラグを挟み、「マウスが押されたらフラグを1にする→フラグが1の間は選択肢を表示する」
-        # とすることで、意図したとおりに表示することができます。
         if Input.mouse_push?(M_LBUTTON) then
             Window.draw_scale(0, 0, back2_img, 0.2, 0.2, 0, 0)
             flag = 1
