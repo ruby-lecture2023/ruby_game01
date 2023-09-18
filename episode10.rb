@@ -1,3 +1,4 @@
+#1月
 require 'dxruby'
 
 WINDOW_X = 640
@@ -5,9 +6,14 @@ WINDOW_Y = 480
 
 # 人物の画像設定
 normal_img = Image.load("image/character/hohoemi.png") # 通常
+black_img = Image.load("image/character/silhouette.png")
+smile_img = Image.load("image/character/smile.png")
+bikkuri_img = Image.load("image/character/bikkuri.png")
+iiyo_img = Image.load("image/character/kangaeru.png")
+kaeru_img = Image.load("image/character/sekimen02.png")
 
 # その他画像設定
-back_img = Image.load("image/back/kyousitu01.jpg") #背景
+back_img = Image.load("image/back/jinja.jpg") #背景
 window_img = Image.load("image/textbox/window_01.png") #メッセージボックス
 button_img = Image.load("image/textbox/button_01.png") # 選択肢
 button_hover_img = Image.load("image/textbox/button_01_hover.png") # 選択肢（選択状態）
@@ -34,7 +40,7 @@ Window.loop do
     timer += 1 if flag == 1
 
     # 背景の表示
-    Window.draw(0, 0, back_img)
+    Window.draw_scale(0, 0, back_img, 0.1, 0.1, 0, 0)
 
     # モノローグの部分はcase文で管理
     case flag2
@@ -57,35 +63,35 @@ Window.loop do
             flag2 = 3
         end
     when 3
-        Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(44, 404, "近所の小さなこの郷雲神社も、お正月は人が多い。", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =4
         end
-　　when 4
-        Window.draw(125, 0, normal_img)
+    when 4
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "屋台も出てる。たこ焼き食べたいな…", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =5
         end
-　　when 5
-        Window.draw(125, 0, normal_img)
+    when 5
+        Window.draw(125, 0, black_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "？？？", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "一緒に食べる？", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =6
         end
-　　when 6
+    when 6
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "あっ、中野くん。明けましておめでとう。\n今日はトミーいないのね。", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =7
         end
-　　when 7
+    when 7
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
@@ -93,37 +99,39 @@ Window.loop do
         if Input.mouse_push?(M_LBUTTON)
             flag2 =8
         end
-　　when 8
-        Window.draw(125, 0, normal_img)
+    when 8
+        Window.draw(125, 0, bikkuri_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "流石にこんな人混みには連れてこないよ", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =9
         end
-　　when 9
-        Window.draw(125, 0, normal_img)
+    when 9
+        Window.draw(125, 0, bikkuri_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "そっか、またトミーくんに会いに行くね。\nていうか、その手袋…", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =10
         end
-　　when 10
-        Window.draw(125, 0, normal_img)
+    when 10
+        Window.draw(125, 0, smile_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "鏡子ちゃんこそ。使ってくれてるんだね。", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =11
         end
-　　when 11
-        Window.draw(125, 0, normal_img)
+    when 11
+        Window.draw(125, 0, smile_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
+        Window.draw_font(110, 374, "氷見鏡子", font_name, color:[255, 255, 255])
         Window.draw_font(44, 404, "うん。これのおかげで、参拝待ちの列も寒くないよ", font, color:[165, 83, 126])
         if Input.mouse_push?(M_LBUTTON)
             flag2 =12
         end
-　　when 12
+    when 12
         Window.draw(125, 0, normal_img)
         Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
         Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
@@ -148,22 +156,22 @@ Window.loop do
         # 選択肢による反応の変化と、好感度の加算
         case player_chose
         when 1 then
-            Window.draw(125, 0, normal_img)
+            Window.draw(125, 0, smile_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "だよね、僕も食べたい", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 2 then
-            Window.draw(125, 0, normal_img)
+            Window.draw(125, 0, iiyo_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "いいよ、大吉引いてみせるから", font, color:[165, 83, 126])
             # 2は好感度が変化しない選択肢
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         when 3 then
-            Window.draw(125, 0, normal_img)
+            Window.draw(125, 0, kaeru_img)
             Window.draw_scale(19, 374, window_img, 0.5, 0.5, 0, 0)
-            Window.draw_font(110, 374, "仲野央士", font_name, color:[255, 255, 255])
+            Window.draw_font(110, 374, "中野黄治", font_name, color:[255, 255, 255])
             Window.draw_font(44, 404, "…うん、新年早々に風邪引いたら縁起悪いもんね", font, color:[165, 83, 126])
             Window.draw_font(0, 0, "好感度：#{likability}", font, color:[255, 255, 255])
         end
